@@ -1,0 +1,66 @@
+{
+  "seed": 0,
+  "model": {
+    "img_size": [384, 512],
+    "patch_size": 16,
+    "embed_dim": 384,
+    "depth": 12,
+    "num_heads": 6,
+    "mlp_ratio": 4.0,
+    "num_views": 6,
+    "global_downsample": 4,
+    "window_size": 8,
+    "fusion_mode": "gated",
+    "attn_drop": 0.0,
+    "proj_drop": 0.0,
+    "drop_path": 0.0,
+    "depth_head_dim": 128,
+    "camera_hidden_dim": 256,
+    "min_depth": 0.05,
+    "max_depth": 200.0,
+    "cross_first": false
+  },
+  "data": {
+    "manifest": "",
+    "num_views": 6,
+    "augment": true,
+    "load_depth": true,
+    "load_pointcloud": false,
+    "view_sampling": "random",
+    "max_points": 100000
+  },
+  "loss": {
+    "depth_l1": 1.0,
+    "depth_si_log": 0.5,
+    "photometric": 0.5,
+    "perceptual": 0.05,
+    "camera": 0.1,
+    "fusion_smooth": 0.01,
+    "use_lpips": false
+  },
+  "train": {
+    "epochs": 200,
+    "batch_size": 8,
+    "lr": 0.0001,
+    "weight_decay": 0.01,
+    "warmup_epochs": 5,
+    "grad_clip": 1.0,
+    "device": "auto",
+    "amp": false,
+    "num_workers": 2,
+    "log_every": 20,
+    "save_every": 10,
+    "max_steps": -1,
+    "resume": "",
+    "init_from_vggt": ""
+  },
+  "eval": {
+    "checkpoint": "",
+    "manifest": "",
+    "output_dir": "outputs/eval",
+    "cd_threshold": 0.05,
+    "with_normals": true,
+    "max_points": 100000,
+    "export_ply": true
+  }
+}

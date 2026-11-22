@@ -1,0 +1,13 @@
+# Core
+torch>=2.1
+numpy>=1.24
+Pillow>=10.0
+scipy>=1.10          # optional at runtime: metrics fall back to NumPy brute force
+tqdm>=4.65
+
+# I/O and optional features
+plyfile>=0.9          # binary PLY ground-truth point clouds (DTU / TnT / SS3DM)
+PyYAML>=6.0           # only needed for .yaml configs (default config is JSON)
+
+# Paper-faithful perceptual loss: install and set loss.use_lpips=true
+# lpips>=0.1.4
